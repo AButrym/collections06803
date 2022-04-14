@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Iterator;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -77,8 +79,21 @@ class SinglyLinkedListTest {
     }
 
     @Test
-    void peek() {
-
+    void reverse() {
+        List<String> elements = List.of("#1", "#2", "#3");
+        for (var el : elements) {
+            list.push(el);
+        }
+        list.reverse();
+        int count = 0;
+        for (Iterator<String> it1 = elements.iterator(), it2 = list.iterator();
+             it1.hasNext() && it2.hasNext();
+        ) {
+            count++;
+            assertEquals(it1.next(), it2.next());
+        }
+        assertEquals(elements.size(), count);
+        assertEquals(elements.size(), list.size());
     }
 
     @Test

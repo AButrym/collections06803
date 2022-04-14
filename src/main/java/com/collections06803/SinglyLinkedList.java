@@ -114,6 +114,10 @@ public class SinglyLinkedList<T> implements Stack<T>, Queue<T> {
         return new HeadToTailIterator();
     }
 
+    public void reverse() {
+        // TODO
+    }
+
     private class HeadToTailIterator implements Iterator<T> {
         Node<T> cursor = head;
 
@@ -129,6 +133,11 @@ public class SinglyLinkedList<T> implements Stack<T>, Queue<T> {
             }
             cursor = cursor.next;
             return cursor.value;
+        }
+
+        @Override
+        public void remove() {
+            // TODO
         }
     }
 }
